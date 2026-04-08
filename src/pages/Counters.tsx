@@ -32,7 +32,7 @@ const Counters = () => {
 
   const { data: printers = [] } = useQuery({
     queryKey: ["printers"],
-    queryFn: async () => { const { data } = await supabase.from("printers").select("id, model, serial_number"); return data || []; },
+    queryFn: async () => { const { data } = await supabase.from("printers").select("id, model, serial_number, initial_counter_bw, initial_counter_color"); return data || []; },
   });
 
   const saveMutation = useMutation({

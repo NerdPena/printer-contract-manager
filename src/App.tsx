@@ -31,8 +31,8 @@ const ProtectedRoutes = () => {
   if (!session) return <Navigate to="/auth" replace />;
 
   return (
-    <AppLayout>
-      <Routes>
+    <Routes>
+      <Route element={<AppLayout />}>
         <Route index element={<Index />} />
         <Route path="clients" element={<Clients />} />
         <Route path="printers" element={<Printers />} />
@@ -40,8 +40,8 @@ const ProtectedRoutes = () => {
         <Route path="counters" element={<Counters />} />
         <Route path="reports" element={<Reports />} />
         <Route path="settings" element={<SettingsPage />} />
-      </Routes>
-    </AppLayout>
+      </Route>
+    </Routes>
   );
 };
 
