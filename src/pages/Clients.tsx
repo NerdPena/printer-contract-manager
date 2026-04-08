@@ -12,7 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Plus, Search, Pencil, Trash2 } from "lucide-react";
 
-const emptyForm = { name: "", phone: "", email: "", business_name: "", address: "", notes: "" };
+const emptyForm = { name: "", phone: "", email: "", business_name: "", address: "", notes: "", fiscal_code: "", trade_registry_number: "", furnizor: "", contract_number: "", contract_date: "" };
 
 const Clients = () => {
   const { user } = useAuth();
@@ -65,7 +65,7 @@ const Clients = () => {
 
   const openEdit = (client: any) => {
     setEditId(client.id);
-    setForm({ name: client.name, phone: client.phone || "", email: client.email || "", business_name: client.business_name || "", address: client.address || "", notes: client.notes || "" });
+    setForm({ name: client.name, phone: client.phone || "", email: client.email || "", business_name: client.business_name || "", address: client.address || "", notes: client.notes || "", fiscal_code: client.fiscal_code || "", trade_registry_number: client.trade_registry_number || "", furnizor: client.furnizor || "", contract_number: client.contract_number || "", contract_date: client.contract_date || "" });
     setOpen(true);
   };
 
@@ -95,23 +95,49 @@ const Clients = () => {
                   <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
                 </div>
                 <div className="space-y-2">
-                  <Label>Business Name</Label>
-                  <Input value={form.business_name} onChange={(e) => setForm({ ...form, business_name: e.target.value })} />
+                  <Label>Furnizor</Label>
+                  <Input value={form.furnizor} onChange={(e) => setForm({ ...form, furnizor: e.target.value })} />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
+                  <Label>Business Name</Label>
+                  <Input value={form.business_name} onChange={(e) => setForm({ ...form, business_name: e.target.value })} />
+                </div>
+                <div className="space-y-2">
+                  <Label>Fiscal Code (CUI)</Label>
+                  <Input value={form.fiscal_code} onChange={(e) => setForm({ ...form, fiscal_code: e.target.value })} />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Trade Registry (Reg. Com.)</Label>
+                  <Input value={form.trade_registry_number} onChange={(e) => setForm({ ...form, trade_registry_number: e.target.value })} />
+                </div>
+                <div className="space-y-2">
                   <Label>Email</Label>
                   <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
                 </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Phone</Label>
                   <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
                 </div>
+                <div className="space-y-2">
+                  <Label>Address</Label>
+                  <Input value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} />
+                </div>
               </div>
-              <div className="space-y-2">
-                <Label>Address</Label>
-                <Input value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} />
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Contract Number</Label>
+                  <Input value={form.contract_number} onChange={(e) => setForm({ ...form, contract_number: e.target.value })} />
+                </div>
+                <div className="space-y-2">
+                  <Label>Contract Date</Label>
+                  <Input type="date" value={form.contract_date} onChange={(e) => setForm({ ...form, contract_date: e.target.value })} />
+                </div>
               </div>
               <div className="space-y-2">
                 <Label>Notes</Label>
