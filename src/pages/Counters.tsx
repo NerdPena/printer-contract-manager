@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { Plus, Mail } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const Counters = () => {
   const { user } = useAuth();
@@ -186,8 +187,5 @@ const Counters = () => {
     </div>
   );
 };
-
-// Need Badge import
-import { Badge } from "@/components/ui/badge";
 
 export default Counters;
