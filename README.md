@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# Contract Manager
 
 TODO: Document your project here
